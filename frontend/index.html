@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guevara Agostina</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css" />
+
+  </head>
+  <body>
+    <!-- MENU DE NAVEGACION -->
+    <nav>
+      <ul>
+        <li class="nav"><a href="#inicio">Inicio</a></li>
+        <li class="nav"><a href="#sobre-mi">Sobre mí</a></li>
+        <li class="nav"><a href="#skills">Skills</a></li>
+        <li class="nav"><a href="#portafolio">Portafolio</a></li>
+        <li class="nav"><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <!-- SALUDO -->
+    <header>
+      <div id="inicio">
+        <div class="text-inicio">
+          <h1>¡Hola!</h1>
+          <p>Soy Agostina</p>
+          <strong class="typing-animation">desarrolladora Full-Stack</strong>
+          <div >
+            <button class="btn">
+              <a href="./Ingeniería_en_Informática.pdf" target="_blank">
+                Descargar CV
+              </a>
+            </button>
+        </div>
+        
+        </div>
+        <div>
+          <img
+            class="img-me"
+            src="./yo.jpg"
+            alt="Agos"
+            
+          />
+        </div>
+        
+      </div>
+    </header>
+    <main>
+      <!--SOBRE MI-->
+      <section class="container_sobremi">
+        <div id="sobre-mi">
+          <h2>Sobre mi</h2>
+          <p>
+            Apasionada por la programación en C, Python y
+            JavaScript, busco un puesto de Desarrolladora Junior
+            en una empresa donde pueda aprender y crecer
+            profesionalmente. Deseo trabajar en un entorno que
+            me permita aplicar mis conocimientos en proyectos,
+            mientras adquiero nuevas habilidades.
+          </p>
+        </div>
+      </section>
+      <!--SKILLS-->
+      <section class="container_all">
+        
+        <div id="skills">
+          <div class="title">
+            <h2>Skills</h2>
+          </div>
+          <div class="hard_skills">
+            <div class="hard_items">
+              <h5>frontend</h3>
+                <div class="list">
+                <li class="items">html5</li>
+                <li class="items">css</li>
+                <li class="items">JavaScript</li>
+                </div>
+              </ul>
+            </div>
+            <div class="hard_items">
+              <h5>backend</h3>
+                <div class="list">
+                <li class="items">C</li>
+                <li class="items">python</li>
+                <li class="items">JavaScript</li>
+                <li class="items">MySQL</li>
+                </div>
+            </div>
+            <div class="hard_items">
+              <h5>herramientas</h3>
+
+                <div class="list">
+                <li class="items">Git</li>
+                <li class="items">postman</li>
+                <li class="items">VisualStudio Code</li>
+                <li class="items">codeblocks</li>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      </section>
+      <!-- FOOTERRR -->
+      <footer>
+        <section id="contacto" class="form-container">
+          <div class="title">
+            <h2>Contactame</h2>
+          </div>
+          <div class="form">
+            <form action="">
+              <label for="name">Nombre</label>
+              <input type="text" name="name" id="name" placeholder="Nombre" />
+              <label for="email">Email</label>
+              <input type="text" name="email" id="email" placeholder="Ingrese su email" />
+              <label for="tel">Telefono</label>
+              <input type="number" name="tel" id="tel" placeholder="Ingrese su telefono"/>
+              <label for="motivo">Motivo</label>
+              <input type="text" name="motivo" id="motivo" placeholder="Ingrese el motivo de contacto"/>
+              <div id="form-message"></div>
+              <button class="send" type="submit" value="Enviar">Enviar</button>
+            </form>
+          </div>
+        </section>
+        <div class="btn-social">
+          <ul>
+            <li><a href="https://wa.me/541161847533?" target="_blank"><i class="fa-brands fa-whatsapp"></i></a> </li>
+            <li><a href="mailto:agostina.guevara@outlook.com?subject=Contacto"><i class="fa-brands fa-microsoft"></i></a> </li>
+            <li><a href="https://www.linkedin.com/in/agostina-guevara/"><i class="fa-brands fa-linkedin"></i></a> </li>
+
+          </ul>
+        </div>
+
+        <h5>copyright Guevara Agostina</h5>
+
+      </footer>
+
+      <script>
+        const form = document.querySelector("#contacto form");
+        const formMessage = document.getElementById("form-message");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            //el backend espera nombre, email, mensaje
+
+            const formData = new FormData();
+            //mapeo campos
+            formData.append("name", form.name.value);
+            formData.append("email", form.email.value);
+
+            //el backend espera msg asique enviamos motivo + tel juntos
+            const mensaje = `Motivo: ${form.motivo.value}\nTeléfono: ${form.tel.value}`;
+            formData.append("message", mensaje)
+
+            try{
+                const response = await fetch("http://127.0.0.1:8000/send-email", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const data = await response.json();
+
+                if (response.ok){
+                    formMessage.textContent = "Mensaje enviado correctamente";
+                    formMessage.style.color= "green";
+                    form.reset();
+                } else {
+                    formMessage.textContent = "Error: " + (data.error || "algo salio mal") ;
+                    formMessage.style.color= "red";
+                }
+
+            }catch(error){
+                formMessage.textContent = "Error de conexion: " + error.message;
+                formMessage.style.color="red";
+            }
+
+        })
+      </script>
+
+
+    </main>
+
+    
+  </body>
+</html>
