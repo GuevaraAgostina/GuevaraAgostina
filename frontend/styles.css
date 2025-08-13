@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgb(212, 172, 238);
+  background-color: #d4acee;
 
   
 }
@@ -31,22 +31,6 @@ label {
 }
 
 
-/* form */
-
-.form .send {
-  background-color: #9119a9;
-  color: rgb(242, 240, 240);
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  width: 9em;
-  height: 3em;
-  font-size: 20px;
-  align-self: center;
-}
-.send:hover {
-  background-color: #330667;
-}
 .form-container h2,
 h5 {
   text-align: center;
@@ -55,7 +39,7 @@ h5 {
 .btn a {
   text-decoration: none;
   font-family: monospace;
-  color: rgb(203, 3, 167);
+  color: #4a148c;
 }
 .btn {
   width: 9em;
@@ -68,7 +52,7 @@ h5 {
   z-index: 1;
   border-radius: 30em;
   cursor: pointer;
-  box-shadow: 6px 6px 12px  #bebcd1 , -6px -6px 12px #9119a9;
+  box-shadow: 6px 6px 12px  #a82cce , -6px -6px 12px #d6a6e0;
 }
 .btn::before {
   content: "";
@@ -80,8 +64,8 @@ h5 {
   left: 0;
   background-image: linear-gradient(
     to right,
-    #4b0534 0%,
-    #3a013e 100%
+    #f3e5f5 0%,
+    #f3e5f5 100%
   );
   transition: 0.5s ease;
   display: block;
@@ -189,19 +173,26 @@ footer {
     width: calc(100% - 16px);
   }
   .form .send {
-    background-color: #9119a9;
+    background-color: #f3e5f5;
     margin-top: 20px;
-    color: white;
-    border: none;
-    border-radius: 15px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border: 2px solid #6a1b9a;
+    border-radius: 20px;
     cursor: pointer;
-    width: 50%;
-    padding: 15px;
+    width: 30%;
+    padding: 10px 15px;
     font-size: 18px;
+
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   }
   
   .send:hover {
-    background-color: #330667;
+    background-color: #9c27b0;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   }
   
   .form-message {
@@ -246,7 +237,9 @@ footer {
   }
   /* tarjeta de skills */
   .hard_items{
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -256,6 +249,7 @@ footer {
     text-align: center;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
+    flex:0 0 auto; /*no se achica*/
   }
   .hard_items:hover{
       transform: scale(1.05);
@@ -292,18 +286,20 @@ footer {
    
     }
     .list {
-      display: grid;
-      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-      column-gap: 15px;
-      gap: 15px;
-      place-items: center;
+      display: flex;
+      flex-wrap: wrap; /*permite varias filas*/
+      justify-content: space-between;
+      gap: 10px;
       margin-top: 20px;
   
     }
+    /*container de cada skill*/
     .hard_skills{
       width: 100%;
       display: flex;
       justify-content: flex-start;
+      align-items: flex-start;
+      gap: 20px;
       overflow-x: auto; /* Permitir scroll horizontal */
       scroll-snap-type: x mandatory; /* Snap para que las tarjetas se alineen al scrollear */
       padding-bottom: 20px; /* Espacio debajo para evitar que el scroll corte las tarjetas */
@@ -352,7 +348,7 @@ footer {
     display: flex;
     width: 60px;
     height: 60px;
-    background: #9119a9;
+    background: #f3e5f5;
     border-radius: 15px;
     box-shadow: -2px -2px 3px #1c0118d2,
     3px 3px 3px #00000033;
