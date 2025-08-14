@@ -11,19 +11,7 @@ body {
 
 
 
-/* style to form */
-/*Utiliza display: flex y flex-direction: column para que los elementos se dispongan en una columna.*/
-form {
-  display: flex;
-  flex-direction: column;
-  width: 600px; /* Ajusta este valor según sea necesario */
-  margin: 0 auto; /* Esto centra el formulario horizontalmente */
-  padding: 20px;
-  max-width: 600px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-}
+
 
 label {
   margin-top: 10px;
@@ -38,7 +26,6 @@ h5 {
 /*style to header button cv*/
 .btn a {
   text-decoration: none;
-  font-family: monospace;
   color: #4a148c;
 }
 .btn {
@@ -261,55 +248,55 @@ footer {
       margin: 10px 0;
   }
   .title h2{
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-      color: #4a148c;
-      margin-bottom: 10px;
+    text-align: center;
+  font-size: 24px;
+    font-weight: bold;
+    color: #4a148c;
+    margin-bottom: 10px;
   }
   
-    #skills li {
-      list-style: none;
+  #skills li {
+    list-style: none;
+  }
+  .container_all {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     }
-    .container_all {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-    #skills {
-      display: flex;
-      flex-direction: column;
-      width: 90%;
-      border-bottom: 8px solid black;
-      padding-bottom: 2em;
-      margin: 0 auto;
-   
-    }
-    .list {
-      display: flex;
-      flex-wrap: wrap; /*permite varias filas*/
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 20px;
-  
-    }
-    /*container de cada skill*/
-    .hard_skills{
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 20px;
-      overflow-x: auto; /* Permitir scroll horizontal */
-      scroll-snap-type: x mandatory; /* Snap para que las tarjetas se alineen al scrollear */
-      padding-bottom: 20px; /* Espacio debajo para evitar que el scroll corte las tarjetas */
-      -ms-overflow-style: none;  /* IE y Edge */
-      scrollbar-width: none;  /* Firefox */
-    }
+  #skills {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    border-bottom: 8px solid black;
+    padding-bottom: 2em;
+    margin: 0 auto;
+
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap; /*permite varias filas*/
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+
+  }
+  /*container de cada skill*/
+  .hard_skills{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    overflow-x: auto; /* Permitir scroll horizontal */
+    scroll-snap-type: x mandatory; /* Snap para que las tarjetas se alineen al scrollear */
+    padding-bottom: 20px; /* Espacio debajo para evitar que el scroll corte las tarjetas */
+    -ms-overflow-style: none;  /* IE y Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
    
   /* seccion sobre mi */
     #sobre-mi {
-      background-color: rgba(255, 255, 255, 0.2); /* Fondo sutil */
+      background-color: #ffffff33; /* Fondo sutil */
       padding: 20px;
       border-radius: 10px;
       width: 80%;
@@ -319,17 +306,70 @@ footer {
   
       }
   
-      #sobre-mi h2 {
-        font-size: 24px;
-        font-weight: bold;
-        color: #4a148c; /* Un color más llamativo */
-        margin-bottom: 10px;
-      }
-      #sobre-mi p {
-        font-size: 15px;
-        line-height: 1.5;
-      }
-  
+  #sobre-mi h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a148c; /* Un color más llamativo */
+    margin-bottom: 10px;
+  }
+  #sobre-mi p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  /*PROYECTOS*/
+  .container_proyectos{
+    width: 100%;
+  }
+  .container_proyectos h2{
+    text-align: center;
+    font-size: 24px;
+    color: #4a148c; /* Un color más llamativo */
+    margin-bottom: 10px;
+  }
+  .proyectos{
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px;
+    margin: 15px;    
+  }
+  .proyecto{
+    padding: 15px 15px;
+    margin: 15px;
+    border-radius: 10px;
+    background-color: #ffffff33;
+  }
+  .proyecto h3{
+    text-transform: uppercase;
+    color: #4a148c;
+  }
+  .btn-proyecto{
+    background-color: #f3e5f5;
+    margin-top: 5px;
+    color: rgb(0, 0, 0);
+    border: 2px solid #6a1b9a;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 15px;
+
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .btn-proyecto:hover{
+    background-color: #9c27b0;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .btn-proyecto a{
+    text-decoration: none;
+    color: #4a148c
+  }
+  .proyecto img{
+    width: 100%;
+    height: auto;
+  }
+
   /* Footer */
   footer {
     margin: 4%;
@@ -501,19 +541,14 @@ footer {
   #skills {
     display: flex;
     flex-direction: column;
-    width: 90%;
-    border-bottom: 8px solid black;
-    padding-bottom: 2em;
-    margin: 0 auto;
+    justify-content: flex-start;
+    /* overflow-x: hidden; */
  
   }
   .list {
-    display: grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-    column-gap: 15px;
+    display: flex;
+    flex-direction: row;
     gap: 15px;
-    place-items: center;
-    margin-top: 20px;
 
   }
   /* estilos para los elementos de skill */
@@ -536,16 +571,27 @@ footer {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   }
   .hard_skills {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    overflow-x: auto; /* Permitir scroll horizontal */
+    scroll-snap-type: x mandatory; /* Snap para que las tarjetas se alineen al scrollear */
+    padding-bottom: 20px; /* Espacio debajo para evitar que el scroll corte las tarjetas */
+    /* -ms-overflow-style: none; 
+    scrollbar-width: none;  */
+    scroll-behavior: smooth;
   }
 
 
   /* tarjeta de skills */
   
   .hard_items{
-  display: inline-block;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -624,6 +670,66 @@ footer {
   #form-message.show {
     display: block; /* Mostrar cuando se envía el formulario */
   }
+  
+
+    /*PROYECTOS*/
+  .container_proyectos{
+    width: 100%;
+  }
+  .container_proyectos h2{
+    text-align: center;
+    font-size: 24px;
+    color: #4a148c; /* Un color más llamativo */
+    margin-bottom: 10px;
+  }
+  .proyectos{
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)) ;
+    padding: 20px;
+    margin-bottom: 10%;    
+  }
+  .proyecto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 15px 15px;
+    margin: 15px;
+    border-radius: 10px;
+    background-color: #ffffff33;
+  }
+  .proyecto h3{
+    text-transform: uppercase;
+    color: #4a148c;
+  }
+  .btn-proyecto{
+    background-color: #f3e5f5;
+    margin-top: 5px;
+    color: rgb(0, 0, 0);
+    border: 2px solid #6a1b9a;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 15px;
+
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .btn-proyecto:hover{
+    background-color: #9c27b0;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .btn-proyecto a{
+    text-decoration: none;
+    color: #4a148c
+  }
+  .proyecto img{
+    width: 100%;
+    height: auto%;
+  }
+
+
 
 }
 
