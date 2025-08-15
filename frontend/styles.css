@@ -6,7 +6,13 @@ body {
   box-sizing: border-box;
   background-color: #d4acee;
 
-  
+/* bloque scroll horizontal indeseado  */
+}html, body {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 
@@ -70,7 +76,7 @@ footer {
 
 /*Responsive*/
 /* Estilos para pantallas pequeñas (móviles) */
-@media (min-width: 320px) {
+@media (min-width: 220px) {
   body {
     font-family: monospace;
     font-size: 16px;
@@ -79,37 +85,67 @@ footer {
     box-sizing: border-box;
   }
 
-  nav {
-    display: flex;
-    border-radius: 5px;
-    background-color: rgba(190, 149, 196, 0.527);
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  /* boton hamburguesa */
+  .menu-toggle{
+    position: fixed;
+    background-color: rgb(56, 8,48);
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    z-index: 2000;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   }
-  nav ul {
+  /* menu */
+  nav{
+    width: 100%;
+  }
+  
+  .nav-menu{
+    width: 100%;
+    display: none;
+    background-color: rgba(190, 149, 196, 0.527);
+    border-radius: 5px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-radius: 0;
+    padding: 5px 0;
+    z-index: 1000;
+
+  }
+  .nav-menu ul {
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
     list-style: none;
-    width: auto;
+  }
+  .nav-menu li{
+    flex: 1;
+    text-align: center;
   }
   nav a {
     text-decoration: none;
-    color: rgb(255, 203, 242);
-    font-size: 15px;
-  }
-  nav ul :hover {
-    background-color: rgb(192, 253, 255);
+    width: 100%;
+    color: rgb(41, 4, 60);
+    font-size: 14px;
+    padding: 8px 0;
+    background-color: transparent ;
+    display: inline-block;
+    text-align: center;
+
   }
   
-  nav ul li {
-    padding: 6px;
-    margin: 2px;
-    background-color: rgb(56, 8, 48);
-    border-radius: 5px;
+  footer h5{
+    margin-bottom: 20%;
   }
 
-  
   /* style to index text  */
   h1 {
     color: #4a148c;
@@ -117,11 +153,18 @@ footer {
   p {
     color: #aa12d4;
   }
-
+  header{
+    margin-top: 10%;
+  }
   #inicio {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     text-align: center;
+    width: 100%;
+  }
+  .text-inicio{
+    margin-left: 10px;
   }
   /* Imagen de presentación */
   .img-me  {
@@ -130,13 +173,9 @@ footer {
     border-radius: 100%;
     width: 200px;
     height: 200px;
-    margin: 2rem;
+    margin: 1rem;
   }
-  .img-me:hover {
-    box-shadow: 0 0 14px rgb(121, 3, 125);
-    animation: img-me 0.5s linear infinite;
-    animation-delay: 0.5s;
-  }
+  
 
  
 /* Formulario */
@@ -150,7 +189,9 @@ footer {
     border-radius: 10px;
     background-color: #f9f9f9;
   }
-  
+  .form{
+    margin: 15px;
+  }
   input,
   textarea {
     margin-top: 5px;
@@ -363,7 +404,7 @@ footer {
   }
   .btn-proyecto a{
     text-decoration: none;
-    color: #4a148c
+    color: #000000
   }
   .proyecto img{
     width: 100%;
@@ -374,10 +415,20 @@ footer {
   footer {
     margin: 4%;
   }
+
+  .title{
+    margin-bottom: 10px;
+  }
+  .btn-social{
+    display: flex;
+    justify-content: center;
+  }
+
   .btn-social ul{
     display: flex;
     gap: 20px;
-    justify-content: center;
+    padding: 20px;
+    margin: 0;
   }
 
   .btn-social li{
@@ -726,7 +777,7 @@ footer {
   }
   .proyecto img{
     width: 100%;
-    height: auto%;
+    height: auto;
   }
 
 
